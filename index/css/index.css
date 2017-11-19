@@ -37,6 +37,7 @@ body{
 	border:#333 solid 2px;
 	padding: 10px;
 	resize: none;
+	width: 100%;
 }
 
 .field-container textarea:focus {
