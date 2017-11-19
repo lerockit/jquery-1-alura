@@ -46,3 +46,12 @@ body{
 .stats-container ul{
 	list-style: none;
 }
+
+.stats-container .seconds{
+	transition: 0.5s;
+}
+
+.stats-container .seconds.start{
+	color: red;
+	font-size: 15px;
+}
