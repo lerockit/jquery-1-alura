@@ -44,6 +44,16 @@ body{
 	outline: none;
 }
 
+#field.green{
+	border:#008000 solid 2px;
+	background: #EAFFEA;
+}
+
+#field.red{
+	border:#9B0000 solid 2px;
+	background: #FFEAEA;
+}
+
 .stats-container {
 	text-align: center;
 }
@@ -58,8 +68,13 @@ body{
 }
 
 .stats-container .seconds.start {
+	color: blue;
+	font-size: 18px;
+}
+
+.stats-container .seconds.game-over{
 	color: red;
-	font-size: 15px;
+	font-size: 18px;
 }
 
 .stats-container button {
