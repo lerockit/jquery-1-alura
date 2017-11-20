@@ -1,14 +1,18 @@
-var text = $('#text').text(),
+var text = $('#text'),
 		field = $('#field'),
 		startSeconds = $('#seconds').text(),
 		seconds = $('#seconds'),
 		words = $('#words'),
-		charac = $('#charac');
+		charac = $('#charac'),
+		restartButton = $('#restart-button');
 
 $(document).ready(function(){
 
 	setValues();
 	startTimer();
+	restartButton.on('click', function(){
+		restart();
+	});
 
 });
 
@@ -28,13 +32,13 @@ function setValues(){
 
 function startTimer(){
 
+	var secDeg = seconds.text();
 	field.one('focus', function(){
 	
 	$('.seconds').addClass('start');
 
 	var timer = setInterval(function(){
-		
-		var secDeg = seconds.text();
+	
 		secDeg--;
 
 		seconds.text(secDeg);
@@ -44,8 +48,20 @@ function startTimer(){
 			clearInterval(timer);
 		};
 
-	} ,1000);
+		} ,1000);
 
 	});
 
-}
+};
+
+function restart(){
+
+	field.attr('disabled', false);
+	field.val('');
+	words.text('0');
+	charac.text('0');
+	seconds.text(startSeconds);
+	startTimer();
+	$('.seconds').removeClass('start');
+
+};
