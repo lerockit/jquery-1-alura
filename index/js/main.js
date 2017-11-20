@@ -1,10 +1,20 @@
 var text = $('#text').text(),
 		field = $('#field'),
+		startSeconds = $('#seconds').text(),
 		seconds = $('#seconds'),
 		words = $('#words'),
 		charac = $('#charac');
 
-field.on('input', function(){
+$(document).ready(function(){
+
+	setValues();
+	startTimer();
+
+});
+
+function setValues(){
+
+	field.on('input', function(){
 	var fieldText = field.val(),
 			numWords = fieldText.split(/\S+/).length;
 
@@ -12,13 +22,17 @@ field.on('input', function(){
 
 	charac.text(fieldText.length);
 
-});
+	});
 
-field.one('focus', function(){
+};
+
+function startTimer(){
+
+	field.one('focus', function(){
 	
 	$('.seconds').addClass('start');
 
-	var cronometer = setInterval(function(){
+	var timer = setInterval(function(){
 		
 		var secDeg = seconds.text();
 		secDeg--;
@@ -27,8 +41,11 @@ field.one('focus', function(){
 
 		if(secDeg == 0){
 			field.attr('disabled', true);
-			clearInterval(cronometer);
+			clearInterval(timer);
 		};
 
 	} ,1000);
-});
+
+	});
+
+}
