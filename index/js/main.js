@@ -3,58 +3,56 @@ var textExample = $('#text'),
 		startSeconds = $('#seconds').text(),
 		seconds = $('#seconds'),
 		words = $('#words'),
-		charac = $('#charac');
+		charac = $('#charac')
+    restartButton = $('#restart-button');
 
 $(document).ready(function(){
 
-	setValues();
-	startTimer();
-	$('#restart-button').on('click', function(){
+  field.one('focus', function(){
+    startTimer();
+  });
+
+	field.on('input', function(){
+    setValues();
+  });
+
+	restartButton.on('click', function(){
 		restart();
 	});
+
 
 });
 
 function setValues(){
 
-	field.on('input', function(){
-		var fieldText = field.val(),
-				numWords = fieldText.split(/\S+/).length;
+	var fieldText = field.val(),
+			numWords = fieldText.split(/\S+/).length;
 
-		words.text(numWords - 1);
+	words.text(numWords - 1);
 
-		charac.text(fieldText.length);
+	charac.text(fieldText.length);
 
-		greenOrRed();
-
-	});
+	greenOrRed();
 
 };
 
 function startTimer(){
 
 	var secDeg = seconds.text();
-	field.one('focus', function(){
 	
 	$('.seconds').addClass('start');
 
 	var timer = setInterval(function(){
-	
-		secDeg--;
 
-		seconds.text(secDeg);
+  	secDeg--;
+  	seconds.text(secDeg);
 
-		if(secDeg == 0){
-			field.attr('disabled', true);
-			$('.seconds').addClass('game-over');
-      field.removeClass('red');
-      field.removeClass('green');
-			clearInterval(timer);
-		};
+  	if(secDeg == 0){
+  		gameOver(timer);
+  	};
 
-		} ,1000);
+	} ,1000);
 
-	});
 
 };
 
@@ -86,5 +84,25 @@ function greenOrRed(){
     field.addClass('red');
     field.removeClass('green');
   }
+
+};
+
+function gameOver(timer){
+
+  field.attr('disabled', true);
+  $('.seconds').addClass('game-over');
+  field.removeClass('red');
+  field.removeClass('green');
+  clearInterval(timer);
+  addRecord();
+
+};
+
+function addRecord(){
+
+  var numWords = words.text(),
+      name = 'Elliot';
+
+  $('tbody').prepend('<tr><td>' + name + '</td><td>' + numWords + ' Palavras </td></tr>');
 
 };
