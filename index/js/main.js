@@ -4,22 +4,28 @@ var textExample = $('#text'),
 		seconds = $('#seconds'),
 		words = $('#words'),
 		charac = $('#charac')
-    restartButton = $('#restart-button');
+    restartButton = $('#restart-button'),
+    removeButton = $('#remove-button');
 
 $(document).ready(function(){
 
   field.one('focus', function(){
+
     startTimer();
+
   });
 
 	field.on('input', function(){
+
     setValues();
+
   });
 
 	restartButton.on('click', function(){
-		restart();
-	});
 
+		restart();
+
+	});
 
 });
 
@@ -94,15 +100,30 @@ function gameOver(timer){
   field.removeClass('red');
   field.removeClass('green');
   clearInterval(timer);
-  addRecord();
+  createRecord($('tbody'), 'Elliot', words.text());
 
 };
 
-function addRecord(){
+function createRecord(tbody, name, numWords){
 
-  var numWords = words.text(),
-      name = 'Elliot';
+  var createRow = $('<tr>'),  
+      createName = $('<td>').text(name),
+      createNumWords = $('<td>').text(numWords + ' Palavras')
+      createRemove = $('<a>').attr('id', 'remove-button').attr('href', '#').text('Remover'),
+      createRemoveButton = $('<td>').prepend(createRemove);
 
-  $('tbody').prepend('<tr><td>' + name + '</td><td>' + numWords + ' Palavras </td></tr>');
+  createRow.append(createName);
+  createRow.append(createNumWords);    
+  createRow.append(createRemoveButton);
 
+  createRemoveButton.on('click', function(event){
+    
+    event.preventDefault();
+
+    createRemoveButton.parent().remove();
+    
+  });
+
+  tbody.prepend(createRow);
+      
 };
