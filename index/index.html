@@ -2,71 +2,101 @@
 <html>
 	<head>
 		<title>Alura Typer</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
 
-		<div class="header-container container">
-			<header>
+		<header class="container-fluid">
 				
-				<h1>ALURA Typer</h1>
+  		<div class="top-container container">
 
-			</header>
-		</div>
+        <h1>ALURATyper</h1>        
 
-		<div class="body-container container">
-			
-			<div class="text-container">
-				<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
+        <div class="stats-container container">
 
-			<div class="row">
-				<div class="field-stats-container">
-					
-					<div class="field-container col-md-5">
-						<textarea id="field" rows="7"></textarea>
-					</div>
+            <ul class="stats list-inline">
 
-					<div class="stats-container col-md-2">
-						<ul class="stats">
-							<li class="seconds"><span id="seconds">3</span> Segundos</li>
-							<li class="words"><span id="words">0</span> Palavras</li>
-							<li class="charac"><span id="charac">0</span> Caracteres</li>
-						</ul>
-						<button id="restart-button">Reiniciar</button>
-					</div>
-				
-				</div>
+              <li class="charac"> <span id="charac">0</span> Caracteres </li>
+              <li class="seconds">
+                <span id="seconds">5</span>s 
+                <i class="fa fa-hourglass-start seconds-icon" aria-hidden="true"></i>
+              </li>
+              <li class="words"> <span id="words">0</span> Palavras </li>
 
-			</div>
+            </ul>
 
-      <div class="record-table col-md-12">
-        
-        <table class="table table-hover table-responsive">
-
-          <thead class="thead-dark">
-
-            <tr>
-              <th>Nome</th>
-              <th>No. de Palavras</th>
-              <th>Remove</th>
-            </tr>  
-
-          </thead>
-
-          <tbody>
-
-          </tbody>
-
-        </table>
+        </div>
 
       </div>
 
+    </header>
+
+    <div class="field-container container-fluid">
+      
+      <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> <!--  Display: none -->
+
+      <textarea id="field"></textarea>
+
+    </div>
+
+    <!-- <div class="text-container container">
+
+          <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        </div> -->
+
+		<!-- <div class="row">
+			<div class="field-stats-container">
+				
+        <div class="buttons-container col-md-1">
+          <button id="restart-button" class="restart"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        </div>
+
+				<div class="field-container col-md-5">
+					<textarea id="field" rows="7"></textarea>
+				</div>
+
+				
+			
+			</div>
+
 		</div>
+
+    <div class="record-table col-md-12">
+      
+      <table class="table table-hover table-responsive">
+
+        <thead class="thead-dark">
+
+          <tr>
+            <th>Nome</th>
+            <th>No. de Palavras</th>
+            <th>Remove</th>
+          </tr>  
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+      </table>
+ -->
+
+
+
+
+<!--     <div class="teste">
+      <textarea class="input-test" ></textarea>
+    </div> -->
+
+    </div>
 
 		<script src="js/jquery.js"></script>
 		<script src="js/main.js"></script>
+    <script src="js/test.js"></script>
 	</body>
 </html>

@@ -9,6 +9,8 @@ var textExample = $('#text'),
 
 $(document).ready(function(){
 
+  field.attr('placeholder', textExample.text());
+
   field.one('focus', function(){
 
     startTimer();
@@ -18,6 +20,10 @@ $(document).ready(function(){
 	field.on('input', function(){
 
     setValues();
+    var finalText = exampleText();
+    
+    $('.field-container').attr('text-exemple', finalText);
+    if(field.val() == '') $('.field-container').attr('text-exemple', '');
 
   });
 
@@ -28,6 +34,16 @@ $(document).ready(function(){
 	});
 
 });
+
+function exampleText(){
+  
+  var fieldText = field.val(),
+      textExampleContent = textExample.text(),
+      finalText = textExampleContent.substr(fieldText.length, textExampleContent.length - fieldText.length);
+
+      return finalText;
+
+};
 
 function setValues(){
 
@@ -69,7 +85,11 @@ function restart(){
 	words.text('0');
 	charac.text('0');
 	seconds.text(startSeconds);
-	startTimer();
+
+	field.one('focus', function(){
+    startTimer();
+  });
+
 	$('.seconds').removeClass('start');
 	$('.seconds').removeClass('game-over');
   field.removeClass('red');
@@ -96,10 +116,11 @@ function greenOrRed(){
 function gameOver(timer){
 
   field.attr('disabled', true);
-  $('.seconds').addClass('game-over');
+  $('.seconds-icon').addClass('game-over');
   field.removeClass('red');
   field.removeClass('green');
   clearInterval(timer);
+  $('.field-container').attr('text-exemple', '');
   createRecord($('tbody'), 'Elliot', words.text());
 
 };
@@ -121,9 +142,10 @@ function createRecord(tbody, name, numWords){
     event.preventDefault();
 
     createRemoveButton.parent().remove();
-    
+
   });
 
   tbody.prepend(createRow);
       
 };
+
