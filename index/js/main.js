@@ -92,8 +92,10 @@ function restart(){
 
 	$('.seconds').removeClass('start');
 	$('.seconds').removeClass('game-over');
+  $('.seconds-icon').removeClass('game-over');
   field.removeClass('red');
   field.removeClass('green');
+
 
 };
 
@@ -130,7 +132,7 @@ function createRecord(tbody, name, numWords){
   var createRow = $('<tr>'),  
       createName = $('<td>').text(name),
       createNumWords = $('<td>').text(numWords + ' Palavras')
-      createRemove = $('<a>').attr('id', 'remove-button').attr('href', '#').text('Remover'),
+      createRemove = $('<i>').attr('id', 'remove-button').addClass('fa').addClass('fa-trash'),
       createRemoveButton = $('<td>').prepend(createRemove);
 
   createRow.append(createName);
