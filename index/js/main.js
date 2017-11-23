@@ -5,6 +5,7 @@ var textExample = $('#text'),
 		words = $('#words'),
 		charac = $('#charac')
     restartButton = $('#restart-button'),
+    scoresButton = $('#scores-button'),
     removeButton = $('#remove-button');
 
 $(document).ready(function(){
@@ -32,6 +33,12 @@ $(document).ready(function(){
 		restart();
 
 	});
+
+  scoresButton.on('click', function(){
+
+    displayScores();
+
+  });
 
 });
 
@@ -141,11 +148,34 @@ function createRecord(tbody, name, numWords){
 
   createRemove.on('click', function(){
     
-    $(this).parent().parent().remove();
+    var newScoreLine = $(this).parent().parent();
+
+    newScoreLine.fadeOut(500);
+
+    setTimeout(function(){
+      newScoreLine.remove();
+    }, 500);
 
   });
 
   tbody.prepend(createRow);
+
+  scrollScores();
       
 };
 
+function scrollScores(){
+
+  $('.table-container').slideDown(500);
+  $('html, body').animate(
+  {
+    scrollTop: $('.table-container').offset().top+'px'
+  }, 1000);
+
+};
+
+function displayScores(){  
+
+  $('.table-container').stop().slideToggle(500);
+
+};

@@ -110,25 +110,54 @@ textarea:focus {
   text-align: center;
 }
 
+button:focus{
+  outline: none;
+}
+
 .buttons-container button {
   background: none;
   border: none;
   color: white;
   font-size: 40px;
-  margin: 25px 0;
+  margin: 25px 10px;
+}
+
+.restart{
   transition: 1s;
 }
 
-.buttons-container button:hover {
+.restart:hover {
   transform: rotate(180deg);
 }
 
-.table-container {
+.scores {
+  transition: 0.3s;
+}
+
+.scores:hover {
+  transform: translateY(-5px);
+}
+
+.table-wrapper {
   position: relative;
   margin: 0 auto;
 }
 
-.table {
+.table-container {
+  text-align: center;
+  display: none;
+}
+
+.table-container h2{
+  font-family: Abel;
+  font-size: 50px;
+  color: #9dd5f4;
+  text-shadow: 0 0 6px rgba(157,213,244,.5);
+  margin-bottom: 45px;
+  text-transform: uppercase;
+}
+
+table {
   margin: 0;
   transform: translateZ(1px);
 }
