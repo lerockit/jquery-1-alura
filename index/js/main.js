@@ -139,11 +139,9 @@ function createRecord(tbody, name, numWords){
   createRow.append(createNumWords);    
   createRow.append(createRemoveButton);
 
-  createRemoveButton.on('click', function(event){
+  createRemove.on('click', function(){
     
-    event.preventDefault();
-
-    createRemoveButton.parent().remove();
+    $(this).parent().parent().remove();
 
   });
 
