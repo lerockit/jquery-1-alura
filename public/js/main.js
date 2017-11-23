@@ -6,11 +6,10 @@ var textExample = $('#text'),
 		charac = $('#charac')
     restartButton = $('#restart-button'),
     scoresButton = $('#scores-button'),
+    randomButton = $('#random-button'),
     removeButton = $('#remove-button');
 
 $(document).ready(function(){
-
-  field.attr('placeholder', textExample.text());
 
   field.one('focus', function(){
 
@@ -21,11 +20,7 @@ $(document).ready(function(){
 	field.on('input', function(){
 
     setValues();
-    var finalText = exampleText();
-    
-    $('.field-container').attr('text-exemple', finalText);
-    if(field.val() == '') $('.field-container').attr('text-exemple', '');
-
+        
   });
 
 	restartButton.on('click', function(){
@@ -40,17 +35,14 @@ $(document).ready(function(){
 
   });
 
+  randomButton.on('click', function(){
+
+    randomText();
+
+  });
+
 });
 
-function exampleText(){
-  
-  var fieldText = field.val(),
-      textExampleContent = textExample.text(),
-      finalText = textExampleContent.substr(fieldText.length, textExampleContent.length - fieldText.length);
-
-      return finalText;
-
-};
 
 function setValues(){
 
@@ -129,7 +121,6 @@ function gameOver(timer){
   field.removeClass('red');
   field.removeClass('green');
   clearInterval(timer);
-  $('.field-container').attr('text-exemple', '');
   createRecord($('tbody'), 'Elliot', words.text());
 
 };
@@ -177,5 +168,19 @@ function scrollScores(){
 function displayScores(){  
 
   $('.table-container').stop().slideToggle(500);
+
+};
+
+function randomText(){
+
+  $.get("http://localhost:3000/frases", function(arrayText){
+
+    var randomNumber = Math.floor(Math.random() * arrayText.length);
+
+    textExample.text(arrayText[randomNumber].texto);    
+    startSeconds = arrayText[randomNumber].tempo;
+    seconds.text(arrayText[randomNumber].tempo);
+
+  });
 
 };

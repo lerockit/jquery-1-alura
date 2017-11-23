@@ -16,8 +16,13 @@ body {
   text-shadow: 0 0 6px rgba(157,213,244,.5);
 }
 
-.text-container{
+.text-container {
   margin-bottom: 50px;
+}
+
+.text-container p {
+  color: white;
+  font-size: 30px;
 }
 
 .stats-container ul {
@@ -59,17 +64,6 @@ body {
   padding: 0;
 }
 
-.field-container::before{
-  position: absolute;
-  font-family: Times New Roman;
-  font-size: 50px;
-  content: attr(text-exemple);
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-}
-
 .field-container textarea {
   width: 100%;
   border: none;
@@ -80,16 +74,8 @@ body {
   float: left;
 }
 
-.field-container textarea::placeholder {
-  opacity: 0.5;
-}
-
 textarea:focus {
   outline: none;
-}
-
-#text {
-  display: none;
 }
 
 #field.green {
@@ -136,6 +122,14 @@ button:focus{
 
 .scores:hover {
   transform: translateY(-5px);
+}
+
+.random {
+  transition: 0.3s;
+}
+
+.random:hover {
+  transform: scale(1.2);
 }
 
 .table-wrapper {
