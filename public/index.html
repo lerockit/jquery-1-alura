@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<title>Alura Typer</title>
+
+    <!-- BOOTSTRAP E FONTES -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+
+    <!-- CSS -->
+
 		<link rel="stylesheet" href="css/index.css">
+
 	</head>
 	<body>
 
-		<div class="header-container container-fluid">
+    <!-- HEADER -->
+
+		<header class="header-container container-fluid">
 				
   		<div class="top-container container">
 
@@ -49,7 +58,9 @@
 
       </div>
 
-    </div>
+    </header>
+
+    <!-- CAMPO DE DIGITAÇÃO -->
 
     <div class="field-container container-fluid">
       
@@ -57,53 +68,61 @@
 
     </div>
 
-    <div class="buttons-table-container container-fluid">
+    <!-- BOTÕES -->
       
-      <div class="buttons-container">
+    <div class="buttons-container container">
 
-        <button id="restart-button" class="restart"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-        <button id="scores-button" class="scores"><i class="fa fa-list-alt" aria-hidden="true"></i></button>
-        <button id="random-button" class="random"><i class="fa fa-random" aria-hidden="true"></i></button>
+      <button id="restart-button" class="restart"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+      <button id="scores-button" class="scores"><i class="fa fa-list-alt" aria-hidden="true"></i></button>
+      <button id="random-button" class="random"><i class="fa fa-random" aria-hidden="true"></i></button>
 
-      </div>
+    </div>
 
-      <div class="table-container">
+    <!-- TABELA DE PONTUAÇÕES -->
 
-        <h2>Recordes</h2>
+    <div class="table-container container-fluid">
 
-        <div class="table-wrapper">
-          
-          <div class="table-bg"></div>
-          <table class="table table-responsive">
-            <thead>
+      <h2>Pontuações</h2>
 
-              <tr>
-                <th>Nome</th>
-                <th>Palavras / Minuto</th>
-                <th>Remove</th>
-              </tr>  
+      <div class="table-wrapper">
+        
+        <div class="table-bg"></div>
+        <table class="table table-responsive">
+          <thead>
 
-            </thead>
-            <tbody>
+            <tr>
+              <th>Nome</th>
+              <th>Palavras / Minuto</th>
+              <th>Remove</th>
+            </tr>  
 
-              <tr>
-                <td>Leandro</td>
-                <td>2000 Palavras/min</td>
-                <td>-</i></td>
-              </tr>
+          </thead>
+          <tbody>
 
-            </tbody>
+            <tr>
+              <td>Leandro</td>
+              <td>2000 Palavras/min</td>
+              <td>-</i></td>
+            </tr>
 
-          </table>
+          </tbody>
 
-        </div>
+        </table>
 
       </div>
 
     </div>
 
+    <!-- JQUERY -->
 		<script src="js/jquery.js"></script>
+
+    <!-- JS -->
 		<script src="js/main.js"></script>
+    <script src="js/textExample.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/field.js"></script>
+    <script src="js/restart.js"></script>
+    <script src="js/scores.js"></script>
 
 	</body>
 </html>
