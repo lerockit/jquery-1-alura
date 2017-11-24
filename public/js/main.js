@@ -127,9 +127,10 @@ function gameOver(timer){
 
 function createRecord(tbody, name, numWords){
 
-  var createRow = $('<tr>'),  
+  var numPerMin = (numWords/(startSeconds/60)).toFixed(0);
+      createRow = $('<tr>'),  
       createName = $('<td>').text(name),
-      createNumWords = $('<td>').text(numWords + ' Palavras')
+      createNumWords = $('<td>').text(numPerMin + ' Palavras/min')
       createRemove = $('<i>').attr('id', 'remove-button').addClass('fa').addClass('fa-trash'),
       createRemoveButton = $('<td>').prepend(createRemove);
 
@@ -151,13 +152,14 @@ function createRecord(tbody, name, numWords){
 
   tbody.prepend(createRow);
 
+
+  $('.table-container').slideDown(500);
   scrollScores();
       
 };
 
 function scrollScores(){
 
-  $('.table-container').slideDown(500);
   $('html, body').animate(
   {
     scrollTop: $('.table-container').offset().top+'px'
@@ -169,9 +171,20 @@ function displayScores(){
 
   $('.table-container').stop().slideToggle(500);
 
+  scrollScores();
 };
 
 function randomText(){
+ 
+  $('.loading').slideDown(300);
+
+  var error = document.querySelector('.error');
+  $('.error-container').hide();
+
+  if ( error != null) error.remove();
+
+  var createError = $('<h3>').text('Ocorreu um erro, por favor tente mais tarde!').addClass('error');
+  var createIconError = $('<i>').addClass('fa').addClass('fa-window-close');
 
   $.get("http://localhost:3000/frases", function(arrayText){
 
@@ -180,6 +193,18 @@ function randomText(){
     textExample.text(arrayText[randomNumber].texto);    
     startSeconds = arrayText[randomNumber].tempo;
     seconds.text(arrayText[randomNumber].tempo);
+
+  })
+  .fail( function(){
+
+    $('.error-wrapper .wrapper').append(createError);
+    $('.error').prepend(createIconError);
+    $('.error-container').slideDown(400);
+
+  })
+  .always(function(){
+
+    $('.loading').slideUp();
 
   });
 
