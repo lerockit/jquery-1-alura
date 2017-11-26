@@ -3,15 +3,17 @@
 
 function restart(){
 
+  clearInterval(timer);
+
   field.attr('disabled', false);
   field.val('');
   words.text('0');
   charac.text('0');
   seconds.text(startSeconds);
 
-  field.one('focus', function(){
-    startTimer();
-  });
+  isInitialized = false;
+
+  field.on('focus', startTimer);
 
   $('.seconds').removeClass('start');
   $('.seconds').removeClass('game-over');

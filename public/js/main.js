@@ -10,27 +10,27 @@ var textExample = $('#text'),
     restartButton = $('#restart-button'),
     scoresButton = $('#scores-button'),
     randomButton = $('#random-button'),
-    removeButton = $('#remove-button');
+    removeButton = $('#remove-button')
+    isInitialized = false,
+    timer = null;
 
-//Funções a serem executadas após a pagina carregar    
+//Funções a serem executadas após a pagina carregar
 
 $(document).ready(function(){
 
-  field.one('focus', function(){
-
-    startTimer();
-
-  });
+  field.on('focus', startTimer);
 
 	field.on('input', function(){
 
     setValues();
-        
+
   });
 
 	restartButton.on('click', function(){
 
-		restart();
+    if (isInitialized) {
+		  restart();
+    }
 
 	});
 

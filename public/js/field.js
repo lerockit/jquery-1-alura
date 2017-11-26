@@ -4,25 +4,29 @@
 function startTimer(){
 
   var secDeg = seconds.text();
-  
+
+  field.off('focus', startTimer);
+
+  isInitialized = true;
+
   $('.seconds').addClass('start');
 
-  var timer = setInterval(function(){
+  timer = setInterval(function(){
 
     secDeg--;
     seconds.text(secDeg);
 
     if(secDeg == 0){
-      gameOver(timer);
+      gameOver();
     };
 
   } ,1000);
-  
+
 };
 
 //Atualiza as informações quando o tempo no cronômetro chega a 0
 
-function gameOver(timer){
+function gameOver(){
 
   field.attr('disabled', true);
   $('.seconds-icon').addClass('game-over');

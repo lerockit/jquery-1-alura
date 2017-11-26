@@ -1,9 +1,9 @@
 
-// Solicita ao servidor o arquivo "frases" que contém as frases e gera uma frase aleatória, dando 
+// Solicita ao servidor o arquivo "frases" que contém as frases e gera uma frase aleatória, dando
 // mansagem erro caso não encontre o arquivo e colocando efeito de carregamento
 
 function randomText(){
- 
+
   $('.loading').slideDown(300);
 
   var error = document.querySelector('.error');
@@ -16,9 +16,11 @@ function randomText(){
 
   $.get("http://localhost:3000/frases", function(arrayText){
 
+    console.log(arrayText);
+
     var randomNumber = Math.floor(Math.random() * arrayText.length);
 
-    textExample.text(arrayText[randomNumber].texto);    
+    textExample.text(arrayText[randomNumber].texto);
     startSeconds = arrayText[randomNumber].tempo;
     seconds.text(arrayText[randomNumber].tempo);
 
