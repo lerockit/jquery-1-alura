@@ -1,13 +1,13 @@
 
 //Inicializa o cronômetro quando usuário dá foco ao campo de texto
 
-function startTimer(){
-
+function startTimer() {
+  isInitialized = true;
   var secDeg = seconds.text();
   
   $('.seconds').addClass('start');
 
-  var timer = setInterval(function(){
+  timer = setInterval(function(){
 
     secDeg--;
     seconds.text(secDeg);
@@ -22,7 +22,7 @@ function startTimer(){
 
 //Atualiza as informações quando o tempo no cronômetro chega a 0
 
-function gameOver(timer){
+function gameOver(){
 
   field.attr('disabled', true);
   $('.seconds-icon').addClass('game-over');

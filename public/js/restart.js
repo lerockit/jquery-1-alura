@@ -3,6 +3,8 @@
 
 function restart(){
 
+  isInitialized = false;
+  clearInterval(timer);
   field.attr('disabled', false);
   field.val('');
   words.text('0');
