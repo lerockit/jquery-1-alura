@@ -3,6 +3,10 @@
 
 function startTimer() {
   isInitialized = true;
+
+  console.log(startSeconds);
+ 
+  
   var secDeg = seconds.text();
   
   $('.seconds').addClass('start');

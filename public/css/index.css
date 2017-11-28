@@ -200,15 +200,15 @@ textarea:focus {
 
 /*########################################## BUTTONS #############################*/
 
-.buttons-table-container {
-  padding: 0;
-}
-
 .buttons-container {  
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-button:focus {
+button:focus,
+input:focus {
   outline: none;
 }
 
@@ -242,6 +242,33 @@ button:focus {
 
 .random:hover {
   transform: scale(1.2);
+}
+
+/*---Find Button---*/
+
+.find-field-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.find-field {
+  border: none;
+  width: 70px;
+  height: 25px;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: Abel;
+}
+
+#find-confirm-button {
+  font-size: 25px;
+  padding: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 /*########################################## TABLE-RECORDS #############################*/
@@ -307,3 +334,4 @@ td i {
 .table thead>tr>th{
   border: none;
 }
+

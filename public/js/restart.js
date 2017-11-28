@@ -3,7 +3,7 @@
 
 function restart(){
 
-  isInitialized = false;
+  haveEvent = true;
   clearInterval(timer);
   field.attr('disabled', false);
   field.val('');

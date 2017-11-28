@@ -6,13 +6,15 @@ var textExample = $('#text'),
 		startSeconds = $('#seconds').text(),
 		seconds = $('#seconds'),
 		words = $('#words'),
-		charac = $('#charac')
+		charac = $('#charac'),
+    timer = null,
+    haveEvent = true,
     restartButton = $('#restart-button'),
     scoresButton = $('#scores-button'),
     randomButton = $('#random-button'),
     removeButton = $('#remove-button'),
-    isInitialized = false,
-    timer = null;
+    findButton = $('#find-button'),
+    findConfirmButton = $('#find-confirm-button');
 
 //Funções a serem executadas após a pagina carregar    
 
@@ -21,6 +23,7 @@ $(document).ready(function(){
   field.one('focus', function(){
 
     startTimer();
+    haveEvent = false;
 
   });
 
@@ -32,7 +35,7 @@ $(document).ready(function(){
 
 	restartButton.on('click', function(){
 
-    if(isInitialized) restart();
+    if(!haveEvent) restart();
 
 	});
 
@@ -45,6 +48,18 @@ $(document).ready(function(){
   randomButton.on('click', function(){
 
     randomText();
+
+  });
+
+  findButton.on('click', function(){
+
+    $('.find-field-wrapper').toggle('slide');
+
+  });
+
+  findConfirmButton.on('click', function() {
+
+    findText();
 
   });
 
