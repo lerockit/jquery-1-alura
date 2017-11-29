@@ -220,13 +220,27 @@ input:focus {
   margin: 25px 10px;
 }
 
+/*---Save Button---*/
+
+.save {
+  transition: .3s;
+}
+
+.save:hover {
+  transform: translateY(5px);
+}
+
+/*---Restart Button---*/
+
 .restart {
-  transition: 1s;
+  transition: .5s;
 }
 
 .restart:hover {
   transform: rotate(180deg);
 }
+
+/*---Display Scores Button---*/
 
 .scores {
   transition: 0.3s;
@@ -236,6 +250,8 @@ input:focus {
   transform: translateY(-5px);
 }
 
+/*---Random Text Button---*/
+
 .random {
   transition: 0.3s;
 }
@@ -244,7 +260,15 @@ input:focus {
   transform: scale(1.2);
 }
 
-/*---Find Button---*/
+/*---Find Button-Field---*/
+
+.find {
+  transition: .3s;
+}
+
+.find:hover {
+  transform: rotate(45deg);
+}
 
 .find-field-wrapper {
   display: flex;
@@ -262,13 +286,50 @@ input:focus {
   font-family: Abel;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 #find-confirm-button {
   font-size: 25px;
   padding: 0;
+  transition: 1s;
 }
 
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+/*find-confirm-button-effect-*/
+
+@keyframes find-confirm{
+  0% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+
+  50% {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+  }
+
+  100% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+}
+
+@keyframes find-confirm-sink {
+  100% {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px);
+  }
+}
+
+.find-confirm:hover {
+  animation-name: find-confirm-sink, find-confirm;
+  animation-duration: .3s, 1.5s;
+  animation-delay: 0s, .3s;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: forwards;
+  animation-direction: normal, alternate;
 }
 
 /*########################################## TABLE-RECORDS #############################*/

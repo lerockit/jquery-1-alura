@@ -9,6 +9,7 @@ var textExample = $('#text'),
 		charac = $('#charac'),
     timer = null,
     haveEvent = true,
+    saveButton = $('#save-button'),
     restartButton = $('#restart-button'),
     scoresButton = $('#scores-button'),
     randomButton = $('#random-button'),
@@ -20,38 +21,46 @@ var textExample = $('#text'),
 
 $(document).ready(function(){
 
-  field.one('focus', function(){
+  loadRecords();
+
+  field.one('focus', function() {
 
     startTimer();
     haveEvent = false;
 
   });
 
-	field.on('input', function(){
+	field.on('input', function() {
 
     setValues();
         
   });
 
-	restartButton.on('click', function(){
+  saveButton.on('click', function() {
+
+    saveScores();
+
+  });
+
+	restartButton.on('click', function() {
 
     if(!haveEvent) restart();
 
 	});
 
-  scoresButton.on('click', function(){
+  scoresButton.on('click', function() {
 
     displayScores();
 
   });
 
-  randomButton.on('click', function(){
+  randomButton.on('click', function() {
 
     randomText();
 
   });
 
-  findButton.on('click', function(){
+  findButton.on('click', function() {
 
     $('.find-field-wrapper').toggle('slide');
 
