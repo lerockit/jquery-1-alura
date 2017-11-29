@@ -30,10 +30,6 @@ function createRecord(tbody, name, numPerMin) {
   });
 
   tbody.prepend(createRow);
-
-
-  // $('.table-container').slideDown(500);
-  // scrollScores();
       
 };
 

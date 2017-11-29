@@ -32,5 +32,7 @@ function gameOver(){
   field.removeClass('green');
   clearInterval(timer);
   createRecord($('tbody'), 'Elliot', numPerMin);
+  $('.table-container').slideDown(500);
+  scrollScores();
 
 };
